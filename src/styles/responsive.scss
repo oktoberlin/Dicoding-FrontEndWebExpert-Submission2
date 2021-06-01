@@ -1,0 +1,136 @@
+$color1: #040f0f;
+$color2: #289944;
+$color3: #e8e8e9;
+
+.posts {
+    display: grid;
+    grid-row-gap: 16px;
+}
+
+@media screen and (max-width: 499px) {
+    header {
+        height: 8vh;
+        p {
+            font-size: 20px;
+            margin-left: auto;
+            margin-right: 20px;
+
+        }
+        button span {
+            display: block;
+            margin-right: auto;
+            padding-bottom: 10px;
+        }
+    }
+    .nav {
+        z-index: 10;
+        top: 8%;
+        width: 100%;
+        position: absolute;
+        background-color: $color1;
+        /* This trasform moves the drawer off canvas. */
+        -webkit-transform: translate(-550px, 0);
+        transform: translate(-550px, 0);
+
+        /* Optionally, we animate the drawer. */
+        transition: transform 0.3s ease;
+        a {
+            font-size: 20px;
+        }
+    }
+
+    .open {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+
+    .nav__item {
+        display: list-item;
+        border-bottom: 1px solid #E0E0E0;
+        width: 100%;
+        text-align: center;
+    }
+    .post-item__title a {
+        font-size: 34px;
+    }
+}
+
+@media screen and (min-width: 455px) {
+    .headline__content {
+        padding: 16px 16px;
+        p {
+            font-size: 14px;
+        }
+    }
+    .headline__title {
+        font-size: 28px;
+    }
+
+    .headline__description {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    header button span {
+        display: none;
+    }
+    .nav__item a {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .headline__content {
+        margin: 0 auto;
+        max-width: 650px;
+    }
+
+    .post-item__content {
+        padding: 16px 32px 32px 32px;
+    }
+
+    
+
+    .post-item__description {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .posts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 16px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .nav__list {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .headline {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .headline__content {
+        padding: 16px 32px;
+    }
+
+    .posts {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    main {
+        max-width: 1200px;
+    }
+}
