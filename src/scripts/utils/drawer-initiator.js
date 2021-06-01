@@ -1,7 +1,11 @@
 const DrawerInitiator = {
-    init({ button, drawer, content }) {
+    init({ button, drawer, hero, content }) {
         button.addEventListener('click', (event) => {
             this._toggleDrawer(event, drawer);
+        });
+
+        hero.addEventListener('click', (event) => {
+            this._closeDrawer(event, drawer);
         });
 
         content.addEventListener('click', (event) => {

@@ -1,9 +1,10 @@
 import DrawerInitiator from '../utils/drawer-initiator';
 
 class App {
-    constructor({ button, drawer, content }) {
+    constructor({ button, drawer, hero, content }) {
         this._button = button;
         this._drawer = drawer;
+        this._hero = hero;
         this._content = content;
 
         this._initialAppShell();
@@ -13,6 +14,7 @@ class App {
         DrawerInitiator.init({
             button: this._button,
             drawer: this._drawer,
+            hero: this._hero,
             content: this._content,
         });
     }
