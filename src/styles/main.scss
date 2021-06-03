@@ -48,6 +48,7 @@ header {
   height: 50px;
   align-items:center;
   width:100%;
+  position: fixed;
   background-color: $color1;
   border-bottom: 2px solid #ff6600;
   transition: min-height 0.3s;
@@ -283,9 +284,40 @@ footer {
   padding: 2em;
   width: 100%;
   text-align: center;
+  margin-top: auto;
   p {
     margin: auto;
     font-size: 14px;
     color: #fff
+  }
+}
+
+/* Like */
+.like {
+  font-size: 18px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: #db0000;
+  color: white;
+  border: 0;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loading {
+  position: relative;
+  width: 100%;
+  #loading-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    margin: auto;
   }
 }

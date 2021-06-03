@@ -17,6 +17,9 @@
         "no-tabs": 0,
         "eol-last": 0,
         "no-underscore-dangle": 0,
-        "multiline": "never"
+        "multiline": 0,
+        "no-console": "off",
+        "no-restricted-globals": "off",
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
     }
 }
