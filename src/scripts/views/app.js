@@ -10,7 +10,6 @@ class App {
         this._drawer = drawer;
         this._hero = hero;
         this._content = content;
-
         this._initialAppShell();
     }
 

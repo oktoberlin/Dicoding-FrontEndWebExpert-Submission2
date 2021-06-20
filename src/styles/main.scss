@@ -6,7 +6,6 @@ $font-openSans: 'Open Sans', sans-serif;
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
 }
 
 body, html {
@@ -19,12 +18,13 @@ body, html {
 body {
   font-family: $font-openSans;
   font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
-main {
-  width: 100%;
-  margin: 0 auto;
-}
+
+
 
 /* Focus Skip Link */
 .skip-link {
@@ -53,11 +53,6 @@ header {
   border-bottom: 2px solid #ff6600;
   transition: min-height 0.3s;
   color: $color3;
-  p {
-    font-size: 28px;
-    font-weight: bold;
-    margin-left: 30px;
-  }
   button {
     background-color: transparent;
     border: none;
@@ -69,6 +64,11 @@ header {
       margin-right: auto;
       margin-left: 20px;
     }
+  }
+  p {
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 30px;
   }
 } 
 
@@ -113,32 +113,45 @@ header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../public/images/heros/hero-image_2.jpg");
   background-position: center;
   background-color: green;
+  margin-bottom: 20px;
+  .hero__inner {
+    margin: 0 auto;
+    max-width: 800px;
+    .hero__title {
+      color: #fff;
+      font-weight: bold;
+      font-size: 65px;
+      font-family: 'Tangerine', cursive;
+    }
+    .hero__tagline {
+      color: #fff;
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: 300;
+    }
+  }
 }
 
-.hero__inner {
-  margin: 0 auto;
-  max-width: 800px;
-}
-
-.hero__title {
-  color: #fff;
-  font-weight: bold;
-  font-size: 65px;
-  font-family: 'Tangerine', cursive;
-}
-
-.hero__tagline {
-  color: #fff;
-  margin-top: 16px;
-  font-size: 18px;
-  font-weight: 300;
-}
-
-
-/* Content */
-.content {
+/* Main Content */
+main {
   padding: 32px;
+  flex: 1;
 }
+
+.content {
+  margin: 0 auto;
+  min-height: 100%;
+  .favorite-heading {
+    text-align: center; 
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+  .restaurant {
+    width: auto;
+  }
+}
+
+
 
 /* Headline */
 .headline__figure {
@@ -217,12 +230,34 @@ header {
 }
 
 /* Post Item */
-
 .post-item {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
+  padding-bottom: 50px;
   border-radius: 5px;
   overflow: hidden;
+  .detail-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-openSans;
+    border-radius: 5px;
+    background-color: $color2;
+    transition: opacity 0.3s;
+    color: $color3;
+    width: auto;
+    height: 44px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 40px;
+    margin-right: 40px;
+    &:hover {
+      opacity: 0.8;
+      background-color: $color3;
+      color: $color2;
+    }
+  }
 }
 
 .post-item__content {
@@ -259,6 +294,11 @@ header {
   }
 }
 
+.rating {
+  display: flex;
+  justify-content: space-between;
+}
+
 .post-item__description {
   margin-top: 16px;
   font-size: 12px;
@@ -270,26 +310,6 @@ header {
   max-height: 100px;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
-}
-
-/* Rating */
-.rating {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* Footer */
-footer {
-  background-color: #0e3013;
-  padding: 2em;
-  width: 100%;
-  text-align: center;
-  margin-top: auto;
-  p {
-    margin: auto;
-    font-size: 14px;
-    color: #fff
-  }
 }
 
 /* Like */
@@ -310,14 +330,190 @@ footer {
   justify-content: center;
 }
 
-#loading {
+/* Loading indicator */
+#loading, #loading-post {
+  margin-top: 10px;
+  text-align: center;
+  display: none;
   position: relative;
-  width: 100%;
   #loading-gif {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 50px;
-    margin: auto;
+  }
+  p {
+    font-size: 22px;
   }
 }
+
+/* Error Message */
+#error-message, #thanks-review {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Restaurant Sub Detail*/
+.restaurant-category {
+  font-size: 26px;
+  margin-inline: 25px;
+  padding-top: 50px;
+  border-top: 2px solid $color3;
+  color: $color1;
+  text-align: center;
+  margin-bottom: 40px;
+  p {
+    font-weight: lighter;
+    color: $color2;
+  }
+}
+
+#menu-container {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+
+#menu-makanan, #menu-minuman {
+  flex: 1;
+  height: auto;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 10px;
+  background: $color1;
+  color: $color3;
+  border: 2px solid #ff6600;
+  p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  ol {
+    padding-left: 20px;
+    font-size: 16px;
+    list-style-position: inside;
+  }
+}
+
+/* Form Consumer Review */
+
+.review-form-container {
+  margin-top: 60px;
+  background-color: $color3;
+  margin-inline: 20%;
+  padding: 0;
+  border-radius: 3px;
+}
+
+.wrapper {
+  list-style-type: none;
+  h1 {
+    padding-top: 23px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+    span {
+      color: $color2;
+    }
+  }
+}
+
+.form-row {
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+button[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Customer Review  */
+#customerReview {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 80px;
+}
+
+.img-consumer-review {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.cards {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+  width: auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card_content {
+  padding: 1rem;
+  background: #ff6600;
+  width: 12.5rem;
+}
+
+.card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+}
+
+/* Footer */
+footer {
+  background-color: #0e3013;
+  padding: 2em;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+  p {
+    margin: auto;
+    font-size: 14px;
+    color: #fff
+  }
+}
+

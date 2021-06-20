@@ -5,9 +5,14 @@ $color3: #e8e8e9;
 .posts {
     display: grid;
     grid-row-gap: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 @media screen and (max-width: 499px) {
+    * {
+        box-sizing: border-box;
+    }
     header {
         height: 8vh;
         p {
@@ -51,8 +56,46 @@ $color3: #e8e8e9;
         width: 100%;
         text-align: center;
     }
-    .post-item__title a {
-        font-size: 34px;
+
+    .hero__title {
+        font-size: 50px;
+    }
+    
+    .headline {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .restaurant-category {
+        font-size: 16px;
+    }
+
+    #menu-makanan, #menu-minuman {
+        margin-left: 3%;
+        margin-right: 3%;
+        p {
+            font-size: 16px;
+        }
+        ol {
+            font-size: 12px;
+        }
+        
+    }
+
+    #loading, #loading-post {
+        p {
+            font-size: 16px;
+        }
+    }
+
+    #error-message, #thanks-review {
+        font-size: 12px;
+    }
+
+    .wrapper {
+        h1 {
+            font-size: 14px;
+        }
     }
 }
 
@@ -63,12 +106,21 @@ $color3: #e8e8e9;
             font-size: 14px;
         }
     }
+
     .headline__title {
         font-size: 28px;
     }
 
     .headline__description {
         font-size: 16px;
+    }
+
+    #menu-makanan, #menu-minuman {
+        margin-left: 3%;
+        margin-right: 3%;
+        ol {
+            font-size: 12px;
+        }
     }
 }
 
@@ -78,6 +130,11 @@ $color3: #e8e8e9;
     }
     .nav__item a {
         font-size: 14px;
+    }
+    .wrapper {
+        h1 {
+            font-size: 16px;
+        }
     }
 }
 
@@ -90,8 +147,6 @@ $color3: #e8e8e9;
     .post-item__content {
         padding: 16px 32px 32px 32px;
     }
-
-    
 
     .post-item__description {
         font-size: 14px;
@@ -112,6 +167,12 @@ $color3: #e8e8e9;
         max-width: 800px;
         margin: 0 auto;
     }
+
+    .column {
+        flex: 1;
+    }
+    
+    
 }
 
 @media screen and (min-width: 900px) {
@@ -128,10 +189,28 @@ $color3: #e8e8e9;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    #menu-makanan, #menu-minuman {
+        ol {
+            font-size: 14px;
+        }
+    }
 }
 
 @media screen and (min-width: 1200px) {
     main {
         max-width: 1200px;
+    }
+
+    .cards_item {
+        width: auto;
+    }
+
+    #menu-makanan, #menu-minuman {
+        margin-left: 10%;
+        margin-right: 10%;
+        ol {
+            font-size: 16px;
+        }
     }
 }

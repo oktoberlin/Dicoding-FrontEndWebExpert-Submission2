@@ -31,9 +31,8 @@ const CacheHelper = {
         const response = await fetch(request);
 
         if (!response || response.status !== 200) {
-          return response;
+            return response;
         }
-
         await this._addCache(request);
         return response;
     },

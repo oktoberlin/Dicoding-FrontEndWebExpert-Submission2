@@ -7,7 +7,8 @@ class headline extends HTMLElement {
 
 	render() {
 		this.innerHTML = `
-        <article class="headline">
+        <a href="#headline" class="skip-link">Menuju ke konten</a>
+        <article id="headline" class="headline">
             <figure class="headline__figure">
                 <img src="${img}" alt="Cerita RestoFind">
                 <figcaption>Cerita RestoFind</figcaption>
